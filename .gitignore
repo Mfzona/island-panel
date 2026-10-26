@@ -1,0 +1,17 @@
+**/bin/
+**/obj/
+**/data/
+**/captures/
+/app/
+/dist/
+/work/
+/outputs/
+/Island Panel.exe
+/tools/*.exe
+*.log
+*.tmp
+.vs/
+.idea/
+.env
+.env.*
+!.env.example

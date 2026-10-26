@@ -1,0 +1,35 @@
+Island Panel — собственный исходный код в src и launcher.cs.
+
+NAudio.Wasapi / NAudio.Core 2.2.1
+Используются для локального анализа звука устройства вывода через WASAPI.
+Лицензия MIT. Copyright 2020 Mark Heath.
+https://github.com/naudio/NAudio
+Точный текст лицензии: tools\NAudio-LICENSE.txt.
+
+QRCoder 1.6.0
+Используется для локального создания QR-кодов.
+Лицензия MIT. Copyright Raffael Herrmann и участники проекта.
+https://github.com/codebude/QRCoder
+Точный текст лицензии: tools\QRCoder-LICENSE.txt.
+
+FFmpeg 7.1 essentials build от gyan.dev
+tools\ffmpeg.exe — отдельная программа для записи экрана.
+Версия сборки: 7.1-essentials_build-www.gyan.dev.
+Сборка включает --enable-gpl --enable-version3 и libx264.
+Лицензия: GNU GPL v3 или более поздняя версия.
+Полный текст: tools\FFmpeg-COPYING-GPLv3.txt.
+Проект и исходники FFmpeg: https://ffmpeg.org/ · https://git.ffmpeg.org/ffmpeg.git
+Сборка Windows: https://www.gyan.dev/ffmpeg/builds/
+Рецепты сборки: https://github.com/GyanD/codexffmpeg
+FFmpeg запускается отдельным процессом, код панели с ним не слинкован.
+
+Microsoft .NET 10 / WPF / Windows SDK projections
+Самодостаточная сборка в app включает файлы .NET Runtime.
+Лицензии и уведомления .NET сохранены в app\LICENSE.txt и
+app\ThirdPartyNotices.txt, если включены поставщиком среды выполнения.
+https://github.com/dotnet/runtime · https://github.com/dotnet/wpf
+
+Open-Meteo — прогноз по запросу пользователя, без API-ключа.
+https://open-meteo.com/ · данные погоды: CC BY 4.0.
+Frankfurter — справочные курсы валют по запросу пользователя.
+https://frankfurter.dev/
