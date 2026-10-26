@@ -1,0 +1,23 @@
+<Window x:Class="IslandPanel.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:IslandPanel" Title="Island Panel" Width="760" Height="430" WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" ShowInTaskbar="False" ShowActivated="False" Topmost="False" UseLayoutRounding="True" AllowDrop="True" ToolTipService.InitialShowDelay="700" ToolTipService.ShowDuration="4500" TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType">
+  <Grid>
+    <Grid x:Name="IslandFrame" Width="760" Height="450" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0">
+      <Grid.RenderTransform><ScaleTransform x:Name="IslandScale"/></Grid.RenderTransform>
+      <local:IslandSurface x:Name="Surface"/>
+      <Border x:Name="Shell" Background="Transparent" CornerRadius="25" Padding="16,0,16,12" Margin="0,0,0,5" ClipToBounds="True">
+        <Grid x:Name="ExpandedLayer" Width="728" Height="432" HorizontalAlignment="Center" VerticalAlignment="Top">
+          <Grid.RowDefinitions><RowDefinition Height="52"/><RowDefinition Height="*"/><RowDefinition Height="25"/></Grid.RowDefinitions>
+          <Grid x:Name="Toolbar">
+            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <StackPanel x:Name="Tabs" Orientation="Horizontal" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center"><Button x:Name="StopRecButton" Content="■ Стоп" Background="#66232F" Visibility="Collapsed" Padding="10,7" Click="StopRecordingClick"/><Button x:Name="PinButton" ToolTip="Закрепить открытой" Click="PinClick" Padding="10,8" Background="Transparent"/><Button x:Name="MinimizeButton" ToolTip="Свернуть · Esc" Click="CollapseClick" Padding="10,8" Background="Transparent"/></StackPanel>
+          </Grid>
+          <ContentControl x:Name="Page" Grid.Row="1" Margin="0,4,0,8" RenderTransformOrigin="0.5,0.5"><ContentControl.RenderTransform><TranslateTransform x:Name="PageTranslation"/></ContentControl.RenderTransform></ContentControl>
+          <Grid x:Name="Footer" Grid.Row="2"><StackPanel Orientation="Horizontal" VerticalAlignment="Center"><Ellipse Width="4" Height="4" Fill="#A79AB5" Margin="1,0,7,0"/><TextBlock x:Name="Status" Text="Всё под рукой" FontSize="10" Foreground="#77747E" MaxWidth="525" TextTrimming="CharacterEllipsis"/></StackPanel><TextBlock Text="Ctrl + Alt + Space" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#625F68" FontSize="10"/></Grid>
+        </Grid>
+      </Border>
+      <Grid x:Name="Compact" Visibility="Collapsed" Cursor="Hand" MouseLeftButtonUp="CompactClick" Margin="12,0,12,5" Background="Transparent">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"><local:EyesControl x:Name="PillEyes" Width="36" Height="24" Margin="0,0,16,0"/><TextBlock x:Name="PillIcon" Text="◈" Foreground="#D4C8E4" FontSize="16" Margin="0,0,16,0"/><TextBlock x:Name="PillClock" FontWeight="SemiBold" FontSize="13"/><TextBlock x:Name="PillInfo" Text="ISLAND" Foreground="#A7A3AF" FontSize="11" Margin="16,2,0,0" MaxWidth="95" TextTrimming="CharacterEllipsis"/></StackPanel>
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>
