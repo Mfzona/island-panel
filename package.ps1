@@ -19,6 +19,11 @@ try {
     foreach ($taskName in @('Island Panel.exe', 'README.md', 'README.txt', 'CHANGELOG.md', 'THIRD-PARTY.txt')) {
         Copy-Item -LiteralPath (Join-Path $taskRoot $taskName) -Destination $taskStage
     }
+    $taskGallery = Join-Path $taskRoot 'docs\images'
+    if (Test-Path -LiteralPath $taskGallery) {
+        New-Item -ItemType Directory -Path (Join-Path $taskStage 'docs') | Out-Null
+        Copy-Item -LiteralPath $taskGallery -Destination (Join-Path $taskStage 'docs\images') -Recurse
+    }
     $taskArchive = Join-Path $OutputDirectory ("IslandPanel-$taskVersion-win-x64.zip")
     Compress-Archive -Path (Join-Path $taskStage '*') -DestinationPath $taskArchive -CompressionLevel Optimal -Force
     Get-FileHash -LiteralPath $taskArchive -Algorithm SHA256 | ForEach-Object { $_.Hash.ToLowerInvariant() + '  ' + [IO.Path]::GetFileName($taskArchive) } | Set-Content -LiteralPath ($taskArchive + '.sha256') -Encoding ascii
